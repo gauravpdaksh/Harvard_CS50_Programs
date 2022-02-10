@@ -1,1 +1,1 @@
-Harvard course CS50
+Harvard University's course CS50- Labs and Problem sets.
