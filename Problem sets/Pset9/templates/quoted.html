@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+    <p class="quote">
+        A share of {{ companyName }} ({{ symbol }}) costs {{ price | usd }}.
+    </p>
+
+{% endblock %}
+
+{% block img %}
+
+    <img src="/static/stocks.jpg" class="img-thumbnail" alt="Stocks" height="510" width="510" title="Stocks">
+
+{% endblock %}

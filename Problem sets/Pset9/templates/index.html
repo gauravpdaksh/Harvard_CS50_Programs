@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+    <table class="table tablestriped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-start">Name</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+       <tbody>
+
+                {% for row in portfolio %}
+                    {% if row.amount != 0 %}
+                        <tr>
+                            <td class="text-start">{{ row.symbol }}</td>
+                            <td class="text-start">{{ row.name }}</td>
+                            <td class="text-end">{{ row.amount }}</td>
+                            <td class="text-end">{{ row.price | usd }}</td>
+                            <td class="text-end">{{ row.totalPrice | usd }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                <td class="border-0 text-end">{{ balance | usd }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+                <td class="border-0 w-bold text-end">{{ total | usd }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}
+
+{% block img %}
+
+    <img src="/static/sell1.jpg" class="img-thumbnail" alt="Casino" height="510" width="510" title="Casino">
+
+{% endblock %}
